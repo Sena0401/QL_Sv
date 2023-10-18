@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextMASV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã SV" />
+
+    <EditText
+        android:id="@+id/editTextMALOP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã lớp" />
+
+    <EditText
+        android:id="@+id/editTextHOTEN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Họ và tên" />
+
+    <EditText
+        android:id="@+id/editTextNGAYSINH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ngày sinh" />
+
+    <EditText
+        android:id="@+id/editTextGIOITINH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giới tính" />
+
+    <EditText
+        android:id="@+id/editTextDANTOC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dân tộc" />
+
+    <EditText
+        android:id="@+id/editTextDIACHI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ" />
+
+    <EditText
+        android:id="@+id/editTextSODIENTHOAI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại" />
+
+    <EditText
+        android:id="@+id/editTextTHANHPHO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Thành phố" />
+
+    <Button
+        android:id="@+id/buttonAddStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm sinh viên" />
+
+
+</LinearLayout>
