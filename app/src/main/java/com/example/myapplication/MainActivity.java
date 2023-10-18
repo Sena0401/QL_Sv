@@ -14,9 +14,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button showSv, showLop, showMonhoc;
+    Button showSv, showLop, showMonhoc, themsv;
 
-    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,35 +23,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Khởi tạo DatabaseHelper
-        dbHelper = new DatabaseHelper(this);
 
         showSv = findViewById(R.id.btn_showSv);
         showLop = findViewById(R.id.btn_showLop);
         showMonhoc = findViewById(R.id.btn_showMonhoc);
+        themsv = findViewById(R.id.btn_themsv);
 
         showSv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             ShowSv();
+
             }
         });
 
-        showLop.setOnClickListener(new View.OnClickListener() {
+        themsv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            }
-        });
-
-        showLop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                ThemSv();
             }
         });
 
     }
-    private void ShowSv(){
-        Intent intent = new Intent(MainActivity.this, Activity_Show_Student.class);
 
+    private void ShoswSv() {
+        Intent intent = new Intent(MainActivity.this, Activity_Show_Student.class);
+        startActivity(intent);
+    }
+
+    private void ThemSv() {
+        Intent intent = new Intent(MainActivity.this, Activity_Add_Student.class);
         startActivity(intent);
     }
 }

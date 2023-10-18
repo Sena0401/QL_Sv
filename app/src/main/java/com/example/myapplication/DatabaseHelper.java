@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,7 +20,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE LOP (MALOP TEXT PRIMARY KEY, MANIENKHOA TEXT, TENLOP TEXT, " +
                 "FOREIGN KEY (MANIENKHOA) REFERENCES NIENKHOA(MANIENKHOA))");
         db.execSQL("CREATE TABLE NIENKHOA (MANIENKHOA TEXT PRIMARY KEY, TENNIENKHOA TEXT)");
-        db.execSQL("CREATE TABLE SINHVIEN (MASV TEXT PRIMARY KEY, MALOP TEXT, HOTEN TEXT, NGAYSINH TEXT, " +
+        //MALOP TEXT,
+        db.execSQL("CREATE TABLE SINHVIEN (MASV TEXT PRIMARY KEY,  HOTEN TEXT, NGAYSINH TEXT, " +
                 "GIOITINH TEXT, DANTOC TEXT, DIACHI TEXT, SODIENTHOAI TEXT, THANHPHO TEXT, FOREIGN KEY (MALOP) REFERENCES LOP(MALOP))");
         db.execSQL("CREATE TABLE MONHOC (MAMON TEXT PRIMARY KEY, TENMON TEXT, TINCHI INTEGER)");
         db.execSQL("CREATE TABLE DIEM (MASV TEXT, MAKHNH TEXT, MAMON TEXT, DIEMLAN1 REAL, " +
@@ -54,8 +56,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM MON";
         return db.rawQuery(query, null);
     }
-
-
+    public  Boolean Add_student(String MASV,String MALOP,  String HOTEN, String NGAYSINH, String GIOITINH, String DIACHI, String DANTOC, String SODIENTHOAI, String THANHPHO ){
+         //
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MASV", MASV);
+        values.put("MALOP", MALOP);
+        values.put("HOTEN", HOTEN);
+        values.put("NGAYSINH", NGAYSINH);
+        values.put("GIOITINH", GIOITINH);
+        values.put("DIACHI", DIACHI);
+        values.put("DANTOC", DANTOC);
+        values.put("SODIENTHOAI", SODIENTHOAI);
+        values.put("THANHPHO", THANHPHO);
+        long Kq = db.insert("SINHVIEN", null, values);
+        if (Kq == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }
 

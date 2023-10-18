@@ -7,6 +7,11 @@
     android:background="#e5f7ff"
     android:orientation="vertical"
     tools:context=".Activity_Show_Student">
+    <ImageButton
+        android:background="@drawable/corner"
+        android:layout_width="100dp"
+        android:layout_height="30dp"/>
+
 
     <ImageButton
         android:id="@+id/btn_back"
@@ -76,9 +81,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Số Điện Thoại: " />
-
-
-            <!-- Các thông tin khác của sinh viên -->
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

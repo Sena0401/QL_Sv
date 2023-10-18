@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="#e5f7ff"
     android:orientation="vertical"
     android:padding="16dp"
@@ -29,11 +29,11 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
                 android:text="Sinh Viên"
-                android:textSize="50sp" />
+                android:textSize="50dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -183,10 +183,16 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-        
 
 
     </LinearLayout>
-  
+
+    <Button
+        android:id="@+id/btn_themsv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="14dp"
+        android:text="Thêm Sv" />
+
 
 </LinearLayout>

@@ -13,9 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        tools:targetApi="33">
+        tools:targetApi="34">
         <activity
             android:name=".Activity_Show_Student"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Add_Student"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
