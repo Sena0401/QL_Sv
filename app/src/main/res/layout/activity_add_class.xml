@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Activity_Add_Student">
+
+    <EditText
+        android:id="@+id/editTextMASV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã SV"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextMALOP"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:hint="Mã lớp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextHOTEN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Họ và tên"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextNGAYSINH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ngày sinh"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextGIOITINH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giới tính"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextDANTOC"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:hint="Dân tộc"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextDIACHI"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextSODIENTHOAI"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextTHANHPHO"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:hint="Thành phố"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnAddStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm sinh viên" />
+
+
+</LinearLayout>

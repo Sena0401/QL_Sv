@@ -76,6 +76,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public  Boolean Add_Class(String MALOP, String TENLOP, String MANK ){
+        //
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MALOP", MALOP);
+        values.put("TENLOP", TENLOP);
+        values.put("MANIENKHOA", MANK);
+
+        long Kq = db.insert("LOP", null, values);
+        if (Kq == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }
 
