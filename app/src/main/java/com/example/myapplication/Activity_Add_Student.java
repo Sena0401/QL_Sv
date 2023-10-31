@@ -63,7 +63,6 @@ public class Activity_Add_Student extends AppCompatActivity {
                 if (addStudent == true) {
                     // Thêm thành công
                     // Xóa dữ liệu sau khi thêm
-
                     editTextMASV.setText("");
                     editTextMALOP.setText("");
                     editTextHOTEN.setText("");

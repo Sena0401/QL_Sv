@@ -7,10 +7,6 @@
     android:background="#e5f7ff"
     android:orientation="vertical"
     tools:context=".Activity_Show_Student">
-    <ImageButton
-        android:background="@drawable/corner"
-        android:layout_width="100dp"
-        android:layout_height="30dp"/>
 
 
     <ImageButton

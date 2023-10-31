@@ -56,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM MON";
         return db.rawQuery(query, null);
     }
+    //
     public  Boolean Add_student(String MASV,String MALOP,  String HOTEN, String NGAYSINH, String GIOITINH, String DIACHI, String DANTOC, String SODIENTHOAI, String THANHPHO ){
          //
         SQLiteDatabase db = this.getWritableDatabase();
@@ -90,6 +91,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }public  Boolean Add_Subject(String MAMON, String TENMON, String TINCHI ){
+        //
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MAMON", MAMON);
+        values.put("TENMON", TENMON);
+        values.put("TINCHI", TINCHI);
+
+        long Kq = db.insert("MON", null, values);
+        if (Kq == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public Cursor showClass() {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("SELECT * FROM LOP",null);
+        return cursor;
+    }
+    public Cursor getdataSTU_withID(String id) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?",new String[]{id});
+        return cursor;
     }
 
 }

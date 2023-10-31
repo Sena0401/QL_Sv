@@ -3,36 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e5f7ff"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="#e5f7ff"
     tools:context=".Activity_Add_Student">
 
     <EditText
-        android:id="@+id/editTextMALOP"
+        android:id="@+id/editTextMAMON"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mã Lớp"
+        android:hint="Mã Môn"
         android:inputType="text" />
     <EditText
-        android:id="@+id/editTextTENLOP"
+        android:id="@+id/editTextTENMON"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên Lớp"
+        android:hint="Tên Môn"
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/editTextMANIENKHOA"
+        android:id="@+id/editTextTINHCHI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mã Niên Khóa "
+        android:hint="Số Tín Chỉ "
         android:inputType="text" />
 
     <Button
-        android:id="@+id/btnAddClass"
+        android:id="@+id/btnAddSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm Lớp Mới" />
+        android:text="Thêm Môn" />
 
 
 </LinearLayout>

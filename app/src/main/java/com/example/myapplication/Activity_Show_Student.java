@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Activity_Show_Student extends AppCompatActivity {
-    private RecyclerView recyclerView;
+
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase db;
     TextView txtHoTen, txtMaSV, txtNgaySinh, txtGioiTinh, txtDanToc, txtDiaChi, txtSoDienThoai;
