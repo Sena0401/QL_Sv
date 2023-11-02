@@ -27,12 +27,18 @@ public class MainActivity extends AppCompatActivity {
         showSv = findViewById(R.id.btn_showSv);
         showLop = findViewById(R.id.btn_showLop);
         showMonhoc = findViewById(R.id.btn_showMonhoc);
-        themsv = findViewById(R.id.btn_themsv);
+        themsv = findViewById(R.id.btn_addStudent);
 
         showLop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ShowLop();
+            }
+        });
+        showSv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowSv();
             }
         });
 
@@ -58,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void ShowLop() {
         Intent intent = new Intent(MainActivity.this, Activity_Show_ListClass.class);
+        startActivity(intent);
+    }
+    private void ShowSv() {
+        Intent intent = new Intent(MainActivity.this, Activity_Show_Student.class);
         startActivity(intent);
     }
 

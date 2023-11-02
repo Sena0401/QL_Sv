@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseHelper db;
 
-    Button back;
+    ImageButton back;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

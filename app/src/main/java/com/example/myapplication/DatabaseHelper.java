@@ -116,6 +116,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?",new String[]{id});
         return cursor;
     }
+    public Cursor showStudent() {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN",null);
+        return cursor;
+    }
 
 }
 
