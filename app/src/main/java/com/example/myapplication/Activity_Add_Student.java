@@ -52,10 +52,7 @@ public class Activity_Add_Student extends AppCompatActivity {
                 String SODIENTHOAI = editTextSODIENTHOAI.getText().toString();
                 String THANHPHO = editTextTHANHPHO.getText().toString();
 
-
-
                 // Đặt giá trị cho các trường dữ liệu khác tương tự ở đây
-
 //
                 Boolean addStudent = databaseHelper.Add_student(MASV,MALOP, HOTEN, NGAYSINH, GIOITINH, DIACHI, DANTOC, SODIENTHOAI, THANHPHO);
 

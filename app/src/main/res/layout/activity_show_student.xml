@@ -9,7 +9,6 @@
     tools:context=".Activity_Show_Student">
 
 
-
     <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="50dp"
@@ -25,6 +24,18 @@
         android:layout_gravity="center"
         android:background="@color/white" />
 
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/btn_delStudent"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Xóa" />
+    </LinearLayout>
 
 </LinearLayout>

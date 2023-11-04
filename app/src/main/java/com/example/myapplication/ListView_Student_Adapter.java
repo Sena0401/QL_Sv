@@ -22,7 +22,9 @@ public class ListView_Student_Adapter extends RecyclerView.Adapter<ListView_Stud
         this.tensv = tensv;
 
 
+
     }
+
 
 
 
@@ -57,5 +59,6 @@ public class ListView_Student_Adapter extends RecyclerView.Adapter<ListView_Stud
         }
 
     }
+
 
 }

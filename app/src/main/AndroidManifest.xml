@@ -15,9 +15,11 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="34">
         <activity
+            android:name=".Activity_Login"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Show_ListClass"
             android:exported="false" />
-
         <activity
             android:name=".Activity_Add_Subject"
             android:exported="false" />
