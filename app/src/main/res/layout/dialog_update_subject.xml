@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Sửa Môn Học"
+        android:textSize="65px" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã Môn :"
+            android:textSize="45px" />
+
+        <EditText
+            android:id="@+id/edtext_update_mamon"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="vd :CTH035"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Môn :"
+            android:textSize="45px" />
+
+        <EditText
+            android:id="@+id/edtext_update_tenmon"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="vd :Quản lý access"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tín Chỉ :"
+            android:textSize="45px" />
+
+        <EditText
+            android:id="@+id/edtext_update_tinchi"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="vd : 3"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/confirm_btn_no"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Hủy" />
+
+        <Button
+            android:id="@+id/confirm_btn_yes"
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Sửa" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -61,8 +61,8 @@ public class Activity_Show_Student extends AppCompatActivity {
         btn_deleteStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               db.deleteAllStudent();
-               finish();
+                deleteStudent();
+
 
             }
         });
@@ -75,7 +75,9 @@ public class Activity_Show_Student extends AppCompatActivity {
             tensv.add(cursor.getString(2));
         }
     }
+
     private void deleteStudent() {
+        // anh xa
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.delete_student);
         dialog.setCanceledOnTouchOutside(false);
@@ -86,24 +88,29 @@ public class Activity_Show_Student extends AppCompatActivity {
 
         EditText idToDEL = dialog.findViewById(R.id.Edttxt_input_masv);
 
+
+        // xoa
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String id = idToDEL.getText().toString();
                 boolean kq = db.deleteStudent(id);
                 if (kq == true) {
-                    Toast.makeText(getApplicationContext(),"Đã xóa môn học",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Đã xóa SV",Toast.LENGTH_LONG).show();
                 }
                 finish();
             }
         });
         dialog.show();
+        //cancel
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        // hienthi dialog
         dialog.show();
     }
 

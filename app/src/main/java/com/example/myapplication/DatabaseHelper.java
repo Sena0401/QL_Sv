@@ -95,6 +95,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public Boolean updateClass(String MALOP, String TENLOP, String MANK) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MALOP", MALOP);
+        values.put("TENLOP", TENLOP);
+        values.put("MANIENKHOA", MANK);
+        Cursor cursor = DB.rawQuery("SELECT * FROM LOP WHERE MALOP = ?",new String[]{MALOP});
+        if (cursor.getCount()>0) {
+            long kq = DB.update("LOP",values,"MALOP = ?",new String[]{MALOP});
+            if (kq == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
     public  void Add_GIANGVIEN_COSAN(){
         //
         SQLiteDatabase db = this.getWritableDatabase();
@@ -106,6 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        db.insert("GIANGVIEN", null, values);
 
     }
+
     public  Boolean Add_Subject(String MAMON, String TENMON, String TINCHI ){
         //
         SQLiteDatabase db = this.getWritableDatabase();
@@ -121,11 +141,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public Boolean updateSubject(String MAMON, String TENMON, String TINCHI) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MAMON", MAMON);
+        values.put("TENMON", TENMON);
+        values.put("TINCHI", TINCHI);
+        Cursor cursor = DB.rawQuery("SELECT * FROM MON WHERE MAMON = ?", new String[]{MAMON});
+        if (cursor.getCount() > 0) {
+            long kq = DB.update("MON", values, "MAMON = ?", new String[]{MAMON});
+            if (kq == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
     public Cursor showClass() {
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("SELECT * FROM LOP",null);
         return cursor;
     }
+
     public Cursor getdataSTU_withID(String id) {
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?",new String[]{id});
@@ -136,6 +175,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN",null);
         return cursor;
     }
+    // xoa sv theo msv
     public Boolean deleteStudent(String masv) {
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MASV = ?",new String[]{masv});
