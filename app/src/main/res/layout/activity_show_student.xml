@@ -30,9 +30,26 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/btn_delStudent"
+            android:id="@+id/btn_addStudent"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Thêm" />
+        <Button
+            android:id="@+id/btn_updateStudent"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Sửa" />
+
+        <Button
+            android:id="@+id/btn_deleteStudent"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:text="Xóa" />

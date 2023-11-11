@@ -26,7 +26,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
     DatabaseHelper db;
 
     ImageButton back;
-    Button btn_del, btn_update;
+    Button btn_del, btn_update, btn_add;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -79,10 +79,20 @@ public class Activity_Show_ListClass extends AppCompatActivity {
                 deleteClass();
             }
         });
+        btn_add = findViewById(R.id.btn_add);
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThemLop();
+            }
+        });
 
 
     }
-
+    private void ThemLop() {
+        Intent intent = new Intent(Activity_Show_ListClass.this, Activity_Add_Class.class);
+        startActivity(intent);
+    }
     private void displayClass() {
         Cursor cursor = db.showClass();
         while (cursor.moveToNext()) {
@@ -130,6 +140,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
     }
 
 
+    // lấy mã lớp để truyền vào updateClass();
     private void getID_ToUpdate() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_getid_toupdate);
@@ -138,7 +149,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
         Button cancel = dialog.findViewById(R.id.dialog_button_no);
         Button ok = dialog.findViewById(R.id.dialog_button_yes);
 
-        EditText malop = dialog.findViewById(R.id.id_malop);
+        EditText malop = dialog.findViewById(R.id.id);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,6 +167,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
 
     }
 
+    //Xử lý sửa
     private void updateClass(String malop) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_update_class);

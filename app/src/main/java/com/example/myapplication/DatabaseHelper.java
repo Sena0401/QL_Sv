@@ -21,8 +21,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (MANIENKHOA) REFERENCES NIENKHOA(MANIENKHOA))");
         db.execSQL("CREATE TABLE NIENKHOA (MANIENKHOA TEXT PRIMARY KEY, TENNIENKHOA TEXT)");
         //MALOP TEXT,
-        db.execSQL("CREATE TABLE SINHVIEN (MASV TEXT PRIMARY KEY,  HOTEN TEXT, NGAYSINH TEXT, " +
-                "GIOITINH TEXT, DANTOC TEXT, DIACHI TEXT, SODIENTHOAI TEXT, THANHPHO TEXT, FOREIGN KEY (MALOP) REFERENCES LOP(MALOP))");
+        db.execSQL("CREATE TABLE SINHVIEN (" +
+                "MASV TEXT PRIMARY KEY," +
+                "HOTEN TEXT, " +
+                "NGAYSINH TEXT, " +
+                "GIOITINH TEXT, " +
+                "DANTOC TEXT, " +
+                "DIACHI TEXT, " +
+                "SODIENTHOAI TEXT, " +
+                "THANHPHO TEXT, " +
+                "FOREIGN KEY (MALOP) REFERENCES LOP(MALOP))");
         db.execSQL("CREATE TABLE MONHOC (MAMON TEXT PRIMARY KEY, TENMON TEXT, TINCHI INTEGER)");
         db.execSQL("CREATE TABLE DIEM (MASV TEXT, MAKHNH TEXT, MAMON TEXT, DIEMLAN1 REAL, " +
                 "DIEMLAN2 REAL, DIEM REAL, FOREIGN KEY (MASV) REFERENCES SINHVIEN(MASV), FOREIGN KEY (MAKHNH) " +
@@ -49,19 +57,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM SINHVIEN";
         return db.rawQuery(query, null);
     }
+
     public Cursor getAllClass() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM LOP";
         return db.rawQuery(query, null);
     }
+
     public Cursor getAllSubject() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM MON";
         return db.rawQuery(query, null);
     }
+
     //
-    public  Boolean Add_student(String MASV,String MALOP,  String HOTEN, String NGAYSINH, String GIOITINH, String DIACHI, String DANTOC, String SODIENTHOAI, String THANHPHO ){
-         //
+    public Boolean Add_student(String MASV, String MALOP, String HOTEN, String NGAYSINH, String GIOITINH, String DIACHI, String DANTOC, String SODIENTHOAI, String THANHPHO) {
+        //
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("MASV", MASV);
@@ -80,7 +91,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-    public  Boolean Add_Class(String MALOP, String TENLOP, String MANK ){
+
+    public Boolean Add_Class(String MALOP, String TENLOP, String MANK) {
         //
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -95,26 +107,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
     public Boolean updateClass(String MALOP, String TENLOP, String MANK) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("MALOP", MALOP);
         values.put("TENLOP", TENLOP);
         values.put("MANIENKHOA", MANK);
-        Cursor cursor = DB.rawQuery("SELECT * FROM LOP WHERE MALOP = ?",new String[]{MALOP});
-        if (cursor.getCount()>0) {
-            long kq = DB.update("LOP",values,"MALOP = ?",new String[]{MALOP});
+        Cursor cursor = DB.rawQuery("SELECT * FROM LOP WHERE MALOP = ?", new String[]{MALOP});
+        if (cursor.getCount() > 0) {
+            long kq = DB.update("LOP", values, "MALOP = ?", new String[]{MALOP});
             if (kq == -1) {
                 return false;
             } else {
                 return true;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
-    public  void Add_GIANGVIEN_COSAN(){
+
+    public void Add_GIANGVIEN_COSAN() {
         //
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -122,11 +135,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("MAGV", "thien");// ten dnag nhap
         values.put("TENGV", "0000");// password
 
-       db.insert("GIANGVIEN", null, values);
+        db.insert("GIANGVIEN", null, values);
 
     }
 
-    public  Boolean Add_Subject(String MAMON, String TENMON, String TINCHI ){
+    public Boolean Add_Subject(String MAMON, String TENMON, String TINCHI) {
         //
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -141,6 +154,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
     public Boolean updateSubject(String MAMON, String TENMON, String TINCHI) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -159,74 +173,103 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public Cursor showClass() {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM LOP",null);
+        Cursor cursor = DB.rawQuery("SELECT * FROM LOP", null);
         return cursor;
     }
 
     public Cursor getdataSTU_withID(String id) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?",new String[]{id});
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?", new String[]{id});
         return cursor;
     }
+
     public Cursor showStudent() {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN",null);
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN", null);
         return cursor;
     }
+
     // xoa sv theo msv
     public Boolean deleteStudent(String masv) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MASV = ?",new String[]{masv});
-        if (cursor.getCount()>0) {
-            long kq = DB.delete("SINHVIEN","MASV = ?",new String[]{masv});
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MASV = ?", new String[]{masv});
+        if (cursor.getCount() > 0) {
+            long kq = DB.delete("SINHVIEN", "MASV = ?", new String[]{masv});
             if (kq == -1) {
                 return false;
             } else {
                 return true;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     public Boolean deleteClass(String malop) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM LOP WHERE MALOP = ?",new String[]{malop});
-        if (cursor.getCount()>0) {
-            long kq = DB.delete("LOP","MALOP = ?",new String[]{malop});
+        Cursor cursor = DB.rawQuery("SELECT * FROM LOP WHERE MALOP = ?", new String[]{malop});
+        if (cursor.getCount() > 0) {
+            long kq = DB.delete("LOP", "MALOP = ?", new String[]{malop});
             if (kq == -1) {
                 return false;
             } else {
                 return true;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     public Boolean deleteAllClass() {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM LOP",null);
-            long kq = DB.delete("LOP",null,null);
-            if (kq == -1) {
-                return false;
-            } else {
-                return true;
-            }
-
-    }
-    public Boolean deleteAllStudent() {
-        SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN",null);
-        long kq = DB.delete("SINHVIEN",null,null);
+        Cursor cursor = DB.rawQuery("SELECT * FROM LOP", null);
+        long kq = DB.delete("LOP", null, null);
         if (kq == -1) {
             return false;
         } else {
             return true;
         }
 
+    }
+
+    public Boolean deleteAllStudent() {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN", null);
+        long kq = DB.delete("SINHVIEN", null, null);
+        if (kq == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public Boolean updateStudent(String masv, String tensv, String ngaysinh, String gioitinh, String dantoc, String diachi, String sodienthoai, String thanhpho) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("MASV", masv);
+        values.put("HOTEN", tensv);
+        values.put("NGAYSINH", ngaysinh);
+        values.put("GIOITINH", gioitinh);
+        values.put("DANTOC", dantoc);
+        values.put("DIACHI", diachi);
+        values.put("SODIENTHOAI", sodienthoai);
+        values.put("THANHPHO", thanhpho);
+
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MASV = ?", new String[]{masv});
+        if (cursor.getCount() > 0) {
+            long kq = DB.update("SINHVIEN", values, "MASV = ?", new String[]{masv});
+            if (kq == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 }
 

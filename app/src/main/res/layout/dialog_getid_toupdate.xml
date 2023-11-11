@@ -10,13 +10,13 @@
         android:textStyle="bold"
         android:layout_gravity="top|center"
         android:layout_marginBottom="10dp"
-        android:text="Nhập Mã môn học để tiếp tuc"/>
+        android:text="Nhập Mã để tiếp tuc"/>
     <EditText
-        android:id="@+id/id_malop"
+        android:id="@+id/id"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:hint="Mã môn học"
+        android:hint="Input ID"
         android:layout_marginBottom="20dp"/>
     <LinearLayout
         android:layout_gravity="center"
