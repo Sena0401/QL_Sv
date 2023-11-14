@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,6 +26,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseHelper db;
+    AdapterView.OnItemClickListener mOnItemClickListener;
 
     ImageButton back;
     Button btn_del, btn_update, btn_add;
@@ -39,9 +42,12 @@ public class Activity_Show_ListClass extends AppCompatActivity {
         tenlop = new ArrayList<>();
         mank = new ArrayList<>();
 
-        recyclerView = findViewById(R.id.listview_Showclass);
         adapter = new ListView_Class_Adapter(this, malop, tenlop, mank);
+        recyclerView = findViewById(R.id.listview_Showclass);
         recyclerView.setAdapter(adapter);
+
+//        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+//        recyclerView.addItemDecoration(itemDecoration);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayClass();
@@ -51,12 +57,7 @@ public class Activity_Show_ListClass extends AppCompatActivity {
             Toast.makeText(Activity_Show_ListClass.this, "Không có dữ liệu hiển thị", Toast.LENGTH_LONG).show();
             return;
         }
-        recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // xử lý lấy mã sv qua intent khác để sử dụng
-            }
-        });
+
         back = findViewById(R.id.btn_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

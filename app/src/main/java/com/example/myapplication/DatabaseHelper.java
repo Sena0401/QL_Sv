@@ -180,11 +180,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getdataSTU_withID(String id) {
-        SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?", new String[]{id});
-        return cursor;
-    }
 
     public Cursor showStudent() {
         SQLiteDatabase DB = this.getWritableDatabase();
@@ -247,7 +242,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public Boolean updateStudent(String masv, String tensv, String ngaysinh, String gioitinh, String dantoc, String diachi, String sodienthoai, String thanhpho) {
+    public Boolean updateStudent(String masv, String tensv, String ngaysinh, String gioitinh, String dantoc, String diachi, String sodienthoai, String thanhpho)
+    {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("MASV", masv);
@@ -270,6 +266,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return false;
         }
+    }
+    public Cursor search_student_byid(String id) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("SELECT * FROM SINHVIEN WHERE MSSV = ?", new String[]{id});
+        return cursor;
     }
 }
 
